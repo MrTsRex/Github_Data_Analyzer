@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.png';
 import './App.css';
-import TopNav from './Top_Nav';
-import NavBar from './Nav_Bar';
+import TopNav from './components/Top_Nav';
+import NavBar from './components/Nav_Bar';
 
 
 class App2  extends React.Component {
