@@ -2,7 +2,7 @@ This is the repository of the github analyzer project. The project uses `Reactjs
 
 ## How to download and run the project
 
- - Clone the repository from the command `git clone https://github.com/MrTsRex/Github_Data_Analyzer.git` from your Terminal
+ - Clone the repository with the command `git clone https://github.com/MrTsRex/Github_Data_Analyzer.git` from your Terminal
 
  - Install the recent version of [`Node`](https://nodejs.org/en/)
 
