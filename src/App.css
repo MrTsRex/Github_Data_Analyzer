@@ -1,0 +1,98 @@
+.App {
+  text-align: center;
+  background-color: #222;
+  
+}
+
+
+.App-logo {
+  
+  height: 80px;
+    -webkit-animation: sk-rotateplane 3s infinite ease-in-out;
+  animation: sk-rotateplane 3s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  40% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  80% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+/*@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+*/
+
+.App-header {
+  
+  height: 150px;
+  padding: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.App-title {
+  margin: 0;
+  padding: 10px;
+  font-weight: normal;
+  font-size: 4em;
+  line-height: 1em;
+}
+
+.bannerDesc {
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.25em;
+  margin: 0;
+}
+
+.Navbar {
+  font-size: large;
+  color: white;
+  padding: 10px;
+  margin-top: 50px;
+  background-color: #0E0E03;
+}
+
+
+
+
+.container {
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: var(--max-content-width);
+}
+
+.brand {
+  
+  text-decoration: none;
+  font-size: 1.75em; /* ~28px */
+}
+
+.brandTxt {
+  margin-left: 10px;
+}
+
+.banner {
+  text-align: center;
+}
+
+.bannerTitle {
+  margin: 0;
+  padding: 10px;
+  font-weight: normal;
+  font-size: 4em;
+  line-height: 1em;
+}
+
+
+
