@@ -1,4 +1,14 @@
 .navbar {
   float: center;
   margin: 6px 0 0;
+  font-family: 'Oswald', sans-serif;
+}
+
+.link{
+	font-family: 'Oswald', sans-serif;
+	/*color: #ff9900;
+	color: #ff9969;*/
+	/*color: rgb(255,82,82);*/
+	/*color: #ffb74d;*/
+	color: #EE7600;
 }

@@ -24,7 +24,28 @@ class App  extends React.Component {
     });
     console.log("callback made for: ", selectedTab);
   };
-  render() {
+
+
+  render() {  
+
+    let content = (<Home />);
+
+    if(this.state.selectedTab === 'Home'){
+      content = (<Home />);
+    }
+    else if(this.state.selectedTab === 'Repository'){
+      content = (<Repository />);              
+    }
+    else if(this.state.selectedTab === 'Languages'){
+      content = (<Languages />);              
+    }
+    else if(this.state.selectedTab === 'Users'){
+      content = (<Users />);              
+    }
+    else if(this.state.selectedTab === 'SavedGraphs'){
+      content = (<SavedGraphs />);              
+    }  
+
     return (
       <div className="App">
         <div className="header">
@@ -33,54 +54,14 @@ class App  extends React.Component {
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
               <h1 className="App-title">Github Analyzer</h1>
-              <p className="bannerDesc">Github trends analysis visualized</p>
+              <p className="bannerDesc">Github trends analysis visualized!</p>
             </header>
           </div>
           <div className="Navbar">
-            <NavBar callBackFunction={this.changeTab.bind(this)}/>
-            
+            <NavBar callBackFunction={this.changeTab.bind(this)}/>           
           </div>
         </div>
-          {
-            this.state.selectedTab === 'Home'
-            ? (
-              
-               
-               <div >
-               <Home />
-               </div>
-              
-            ) 
-            : this.state.selectedTab === 'Repositories' 
-            ? 
-            (
-                <div>
-                <Repository />
-                </div>
-            ) 
-            : this.state.selectedTab === 'Languages' 
-            ? 
-            (
-                <div>
-                <Languages />
-                </div>
-            )
-            : this.state.selectedTab === 'Users' 
-            ? 
-            (
-                <div>
-                <Users />
-                </div>
-            )
-            : this.state.selectedTab === 'Saved Graphs' 
-            ? 
-            (
-                <div>
-                <SavedGraphs />
-                </div>
-            ) : null
-
-          }
+        {content}
       </div>
     );
   }

@@ -42,12 +42,19 @@
   
 }
 
+
 .App-title {
   margin: 0;
   padding: 10px;
   font-weight: normal;
-  font-size: 4em;
+  font-size: 3em;
   line-height: 1em;
+  font-family: 'Oswald', sans-serif;
+  /*color: #ff9969;
+  #685206*/
+  /*color: rgb(255,82,82);*/
+  /*color: #EE7600;*/
+  color: #ee9000;
 }
 
 .bannerDesc {
@@ -55,22 +62,17 @@
   color: rgba(255, 255, 255, 0.5);
   font-size: 1.25em;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .Navbar {
-  font-size: large;
-  color: white;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  color: #685206;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   background-color: #0E0E03;
+  font-family: 'Oswald', sans-serif;
 }
-
-
-
 
 .container {
   margin: 0 auto;
@@ -78,27 +80,7 @@
   max-width: var(--max-content-width);
 }
 
-.brand {
-  
-  text-decoration: none;
-  font-size: 1.75em; /* ~28px */
-}
 
-.brandTxt {
-  margin-left: 10px;
-}
-
-.banner {
-  text-align: center;
-}
-
-.bannerTitle {
-  margin: 0;
-  padding: 10px;
-  font-weight: normal;
-  font-size: 4em;
-  line-height: 1em;
-}
 
 
 
