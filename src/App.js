@@ -8,11 +8,12 @@ import Home from './components/Home/Home'
 import Users from './components/Users/Users'
 import SavedGraphs from './components/SavedGraphs/SavedGraphs'
 import Languages from './components/Languages/Languages'
-
+import axios from 'axios'
 
 class App  extends React.Component {
   state = {
-    selectedTab: 'Home'
+    selectedTab: 'Home', 
+    responseData: []
 
   };
   componentWillMount() {
@@ -22,6 +23,17 @@ class App  extends React.Component {
     this.setState({
       selectedTab: selectedTab
     });
+    if(selectedTab === 'Languages'){
+      console.log('Flow');
+      axios.get('http://localhost:3000/languages')
+      .then((response) => {
+        console.log(response);
+        this.setState({ responseData: response.data })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
     console.log("callback made for: ", selectedTab);
   };
 
@@ -37,7 +49,8 @@ class App  extends React.Component {
       content = (<Repository />);              
     }
     else if(this.state.selectedTab === 'Languages'){
-      content = (<Languages />);              
+      content = (<Languages data = {this.state.responseData} />);  
+
     }
     else if(this.state.selectedTab === 'Users'){
       content = (<Users />);              
