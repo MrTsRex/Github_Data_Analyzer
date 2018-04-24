@@ -27,8 +27,12 @@ class Languages extends Component {
     render () {
         return (
             <div className="container">
-              
-                {this.props.data.length > 0 ?<ZingChart  id="myChart" className="center" height="300" width="600" data={
+                
+                {this.props.data.length > 0 ?
+                    
+                         
+                    
+                    <ZingChart  id="myChart" className="center" height="300" width="600" data={
 
 
 
@@ -58,7 +62,7 @@ class Languages extends Component {
                       },
                       "scale-x": {
                         "values": [
-                          this.props.data[0].LANGUAGE_NAME,
+                          name,
                           this.props.data[1].LANGUAGE_NAME,
                           this.props.data[2].LANGUAGE_NAME
                         ]

@@ -8,6 +8,11 @@ import Home from './components/Home/Home'
 import Users from './components/Users/Users'
 import SavedGraphs from './components/SavedGraphs/SavedGraphs'
 import Languages from './components/Languages/Languages'
+import About from './components/About/About'
+import Contact from './components/Contact/Contact'
+import LogIn from './components/LogIn/LogIn'
+import SignUp from './components/SignUp/SignUp'
+
 import axios from 'axios'
 
 class App  extends React.Component {
@@ -57,12 +62,29 @@ class App  extends React.Component {
     }
     else if(this.state.selectedTab === 'SavedGraphs'){
       content = (<SavedGraphs />);              
+    }
+    else if(this.state.selectedTab === 'About'){
+      content = (<About />);              
+    }
+    else if(this.state.selectedTab === 'Contact'){
+      content = (<Contact />);              
+    }
+    else if(this.state.selectedTab === 'SignUp'){
+      content = (<SignUp />);              
+    }
+    else if(this.state.selectedTab === 'LogIn'){
+      content = (<LogIn />);              
+    }
+    else if(this.state.selectedTab === 'SavedGraphs'){
+      content = (<SavedGraphs />);              
     }  
 
     return (
       <div className="App">
         <div className="header">
-          <TopNav />
+          
+            <TopNav callBackFunction={this.changeTab.bind(this)}/>           
+            
           <div className="container">
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
@@ -73,6 +95,7 @@ class App  extends React.Component {
           <div className="Navbar">
             <NavBar callBackFunction={this.changeTab.bind(this)}/>           
           </div>
+         
         </div>
         {content}
       </div>
