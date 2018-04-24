@@ -11,7 +11,9 @@
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.3.0",
     "react-markdown": "^3.3.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "zingchart": "^2.7.0",
+    "zingchart-react": "^1.0.6"
   },
   "scripts": {
     "start": "react-scripts start",

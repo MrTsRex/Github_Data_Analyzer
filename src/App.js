@@ -25,7 +25,7 @@ class App  extends React.Component {
     });
     if(selectedTab === 'Languages'){
       console.log('Flow');
-      axios.get('http://localhost:3000/languages')
+      axios.get('http://localhost:3000/written_in/langcount')
       .then((response) => {
         console.log(response);
         this.setState({ responseData: response.data })
