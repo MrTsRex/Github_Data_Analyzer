@@ -67,10 +67,10 @@ class App  extends React.Component {
 
   render() {  
 
-    let content = (<Home />);
+    var content = (<Home />);
 
     if(this.state.selectedTab === 'Home'){
-      content = (<Home />);
+      content = (<Home data = {this.state.responseData} />);
     }
     else if(this.state.selectedTab === 'Repository'){
       content = (<Repository data = {this.state.responseData} />);              
@@ -98,7 +98,7 @@ class App  extends React.Component {
       content = (<LogIn />);              
     }
     else if(this.state.selectedTab === 'SavedGraphs'){
-      content = (<SavedGraphs />);              
+      content = (<SavedGraphs data = {this.state.responseData}/>);              
     }  
 
     return (
