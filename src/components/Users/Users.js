@@ -31,15 +31,19 @@ class Users extends Component {
         .then((response) => {
         console.log(response);
         this.setState({ responseData: response.data });
-        for(var i=0; i<2; i++){
+        for(var i=0; i<this.state.responseData.length; i++){
                 temp_arr.push(this.state.responseData[i].REPO_NAME);
                 temp_arr1.push(this.state.responseData[i].TOTAL_BYTES);
+                if(i==10){
+                  break;
+                }
             } 
         this.setState({arr:temp_arr});
         this.setState({arr1:temp_arr1});
         })
          .catch((error) => {
         console.log(error);
+        alert('No user found related to the entered name!');
          })
         this.setState({value: event.target.value});
         console.log(temp_arr);
@@ -95,7 +99,12 @@ class Users extends Component {
                         "drag-handler": "icon"
                       },
                       "scale-x": {
-                        "values": this.state.arr
+                        "values": this.state.arr,  
+                        "item":{  
+                          "font-angle":-25,
+                          "offset-x":"7px",
+                          "max-chars": 9 
+                        } 
                       },    
                       "series": [
                         {

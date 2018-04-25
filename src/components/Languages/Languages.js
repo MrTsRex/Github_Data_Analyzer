@@ -11,7 +11,7 @@ class Languages extends Component {
     constructor(props) {
         super(props);
         this.handleChangeDomain = this.handleChangeDomain.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        this.handleClickDomain = this.handleClickDomain.bind(this);
         this.handleChangeRepo = this.handleChangeRepo.bind(this);
         this.handleChangeByteCount = this.handleChangeByteCount.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,9 +32,10 @@ class Languages extends Component {
     handleChangeDomain(event){
        this.setState({value: event.target.value});
     }
-     handleClick(event) {   
+     handleClickDomain(event) {   
         var num = this.state.value;
         var tempname = document.getElementById("input").value;
+        this.state.subtitle = "This graph shows the byte count of languages for a particular domain";
         var temp_arr=[];
         var temp_arr1=[];
         this.state.y_ax = 'BYTE-COUNT';
@@ -42,6 +43,9 @@ class Languages extends Component {
         .then((response) => {
         console.log(response);
         this.setState({ responseData: response.data });
+        console.log('here');
+        console.log(response);
+        
         for(var i=0; i<num; i++){
                 temp_arr.push(this.state.responseData[i].LANGUAGE_NAME);
                 temp_arr1.push(this.state.responseData[i].LANG_FR_REPOTYPE);
@@ -50,7 +54,8 @@ class Languages extends Component {
         this.setState({arr1:temp_arr1});
         })
          .catch((error) => {
-        console.log(error);
+            alert('No language found pertaining to the entered domain!');
+            console.log(error);
          })
         this.setState({value: event.target.value});
         console.log(temp_arr);
@@ -91,6 +96,7 @@ class Languages extends Component {
         .then((response) => {
         console.log(response);
         this.setState({ responseData: response.data });
+
         for(var i=0; i<num; i++){
                 temp_arr.push(this.state.responseData[i].LANGUAGE_NAME);
                 temp_arr1.push(this.state.responseData[i].TOTAL_BYTES_PER_LANG);
@@ -118,7 +124,7 @@ class Languages extends Component {
         return (
 
             <div className="container">
-              <div > 
+              <div className = "forms"> 
               <form onSubmit={this.handleSubmit}>
                   <div>  Domain Name:<br/>
                     <input id="input" type="text" name="Name" /><br/>                   
@@ -133,11 +139,11 @@ class Languages extends Component {
                       </select>
                     </label>
                     </div>
-                    <input type="submit" value="Submit" onClick={this.handleClick}/>
+                    <input type="submit" value="Submit" onClick={this.handleClickDomain}/>
                 </form>
-                </div>
-
+                
                 <span className="spacer">   |   </span>
+                
 
                 <div className="button-container" >                
                 <form onSubmit={this.handleSubmit}>
@@ -153,7 +159,7 @@ class Languages extends Component {
                     </label>
                    
                 </form>  
-                <span className="spacer">   |   </span>
+                
                 <form onSubmit={this.handleSubmit}>
                     <label>
                       Pick a number for topx byte count: 
@@ -169,7 +175,7 @@ class Languages extends Component {
                 </form>  
                
                </div>
-                                      
+            </div>                      
                     <ZingChart  id="myChart" className="center" height="300" width="1350" 
                         data={
 
@@ -187,7 +193,8 @@ class Languages extends Component {
                                 }
                               },
                               subtitle:{
-                                text: this.state.subtitle
+                                "text": this.state.subtitle,
+                                "font-size": 15
                               },
                               "legend": {
                                 "toggle-action": "hide",
