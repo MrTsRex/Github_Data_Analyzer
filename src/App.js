@@ -28,9 +28,9 @@ class App  extends React.Component {
     this.setState({
       selectedTab: selectedTab
     });
-    if(selectedTab === 'Languages'){
+    /*if(selectedTab === 'Languages'){
       console.log('Flow');
-      axios.get('http://localhost:3000/written_in/langcount')
+      axios.get('http://localhost:3000/languages/top/100')
       .then((response) => {
         console.log(response);
         this.setState({ responseData: response.data })
@@ -38,7 +38,29 @@ class App  extends React.Component {
       .catch((error) => {
         console.log(error);
       })
-    }
+    }*/
+    // if(selectedTab === 'Repository'){
+    //   console.log('Flow');
+    //   axios.get('http://localhost:3000/repository/topxwatch/100')
+    //   .then((response) => {
+    //     console.log(response);
+    //     this.setState({ responseData: response.data })
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   })
+    // }
+    // if(selectedTab === 'Users'){
+    //   console.log('Flow');
+    //   axios.get('http://localhost:3000/users/knows/%25alex%25')
+    //   .then((response) => {
+    //     console.log(response);
+    //     this.setState({ responseData: response.data })
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   })
+    // }
     console.log("callback made for: ", selectedTab);
   };
 
@@ -51,14 +73,14 @@ class App  extends React.Component {
       content = (<Home />);
     }
     else if(this.state.selectedTab === 'Repository'){
-      content = (<Repository />);              
+      content = (<Repository data = {this.state.responseData} />);              
     }
     else if(this.state.selectedTab === 'Languages'){
       content = (<Languages data = {this.state.responseData} />);  
 
     }
     else if(this.state.selectedTab === 'Users'){
-      content = (<Users />);              
+      content = (<Users data = {this.state.responseData} />);              
     }
     else if(this.state.selectedTab === 'SavedGraphs'){
       content = (<SavedGraphs />);              
