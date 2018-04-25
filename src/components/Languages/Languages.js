@@ -110,15 +110,7 @@ class Languages extends Component {
         this.setState({value: event.target.value});
         
     } 
-    // componentDidUpdate(){
-    //     console.log('***********');
-    //     console.log(this.state.responseData[0]);
-    //     //name = this.props.data[0].LANGUAGE_NAME;
-    //     // var num=event.target.value;
-    //     console.log(name);
-        
-    //     console.log(this.state.arr);
-    // }
+
 
     render () {
         return (

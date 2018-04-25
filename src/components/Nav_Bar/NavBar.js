@@ -23,7 +23,7 @@ class navbar extends React.Component {
         </button>
         <span className="spacer"> | </span>
         <button className="link"  onClick={() => this.props.callBackFunction('SavedGraphs')}>
-          SAVED GRAPHS
+          LICENCES
         </button>
       </div>
     );

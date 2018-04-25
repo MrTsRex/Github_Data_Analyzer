@@ -27,19 +27,20 @@ class Users extends Component {
         var tempname = document.getElementById("input").value;
         var temp_arr=[];
         var temp_arr1=[];
-        axios.get('http://localhost:3000/users/knows/%25'+tempname+'%25')
+        axios.get('http://localhost:3000/user/langknown/%25'+tempname+'%25')
         .then((response) => {
         console.log(response);
         this.setState({ responseData: response.data });
-        for(var i=0; i<this.state.responseData.length; i++){
-                temp_arr.push(this.state.responseData[i].REPO_NAME);
-                temp_arr1.push(this.state.responseData[i].TOTAL_BYTES);
-                if(i==10){
-                  break;
-                }
-            } 
-        this.setState({arr:temp_arr});
-        this.setState({arr1:temp_arr1});
+        // for(var i=0; i<this.state.responseData.length; i++){
+        //         temp_arr.push(this.state.responseData[i].REPO_NAME);
+        //         temp_arr1.push(this.state.responseData[i].TOTAL_BYTES);
+        //         if(i==10){
+        //           break;
+        //         }
+        //     } 
+        alert('The user named '+this.state.responseData[0].AUTHOR_ID+' knows ' + this.state.responseData[0].NO_LANG_BYUSER
+          +' languages and has written'+this.state.responseData[0].TOTAL_BYTES +' bytes of code.' );
+        
         })
          .catch((error) => {
         console.log(error);
@@ -69,55 +70,9 @@ class Users extends Component {
                     <input id="input" type="text" name="Name" /><br/>
                     <input type="submit" value="Submit" onClick={this.handleClick}/>
                 </form>  
-
-                {this.state.responseData.length > 0 && this.state.arr.length > 0 ?
                                       
-                    <ZingChart  id="myChart" className="center" height="300" width="1350" data={
-
-                    {
-                      "type": "bar",
-                      "title": {
-                        "text": "Top Languages!"
-                      },
-                      "plot": {
-                        "value-box": {
-                          "text": "%v"
-                        },
-                        "tooltip": {
-                          "text": "%v"
-                        }
-                      },
-                      "legend": {
-                        "toggle-action": "hide",
-                        "header": {
-                          "text": "Legend Header"
-                        },
-                        "item": {
-                          "cursor": "pointer"
-                        },
-                        "draggable": true,
-                        "drag-handler": "icon"
-                      },
-                      "scale-x": {
-                        "values": this.state.arr,  
-                        "item":{  
-                          "font-angle":-25,
-                          "offset-x":"7px",
-                          "max-chars": 9 
-                        } 
-                      },    
-                      "series": [
-                        {
-                          "values": this.state.arr1,
-                          "text": "Repository"
-                        }
-                      ]
-                    }
-
-
-
-                } /> : null
-            } 
+                  
+            
             </div>
         )
     }
