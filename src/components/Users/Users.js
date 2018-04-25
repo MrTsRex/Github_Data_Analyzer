@@ -25,8 +25,6 @@ class Users extends Component {
     handleClick(event) {   
          
         var tempname = document.getElementById("input").value;
-        console.log('hello');
-        console.log(tempname);
         var temp_arr=[];
         var temp_arr1=[];
         axios.get('http://localhost:3000/users/knows/%25'+tempname+'%25')
@@ -63,7 +61,7 @@ class Users extends Component {
 
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
-                    First name:<br/>
+                    Name:<br/>
                     <input id="input" type="text" name="Name" /><br/>
                     <input type="submit" value="Submit" onClick={this.handleClick}/>
                 </form>  

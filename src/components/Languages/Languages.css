@@ -12,6 +12,7 @@
 .button-container form div {
     display: inline;
     margin: 20px;
+    margin-bottom: 30px;
 }
 
 .button-container button {
